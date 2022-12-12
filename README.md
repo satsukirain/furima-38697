@@ -18,7 +18,7 @@
 - has_many : orders
 - has_many : product_informations
 
-## product_informations テーブル
+## items テーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------  | ------------------------------ |
@@ -28,7 +28,7 @@
 | situation_id        | integer    | null: false                    |
 | shipping_charge_id  | integer    | null: false                    |
 | region_of_origin_id | integer    | null: false                    |
-| number_of_days_id   | integer    | null: false                    |
+| number_of_day_id    | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
@@ -48,7 +48,7 @@
 | address              | string     | null: false                    |
 | building             | string     |                                |
 | phone_number         | string     | null: false                    |
-| user                 | references | null: false, foreign_key: true |
+| order                | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -58,8 +58,8 @@
 
 | Column     | Type       | Options                        |
 | ---------  | ---------- | ------------------------------ |
-| user_id    | references | null: false, foreign_key: true |
-| item_id    | references | null: false, foreign_key: true |
+| user       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
 
 ### Association
 
