@@ -5,16 +5,16 @@ class ItemsController < ApplicationController
     end
 
     def new
-       @item = Item.new
+      @item = Item.new
     end
 
     def create
-        @item = Item.new(item_params)
-        if @item.save
+      @item = Item.new(item_params)
+      if @item.save
         redirect_to root_path
-        else
+      else
         render :new
-        end
+      end
     end
 
     def edit

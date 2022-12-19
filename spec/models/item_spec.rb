@@ -26,27 +26,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
       it'カテゴリーが空の時' do
-        @item.category_id = 0
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 0")
       end
       it'状態が空の時' do
-        @item.situation_id = 0
+        @item.situation_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Situation must be other than 0")
       end
       it'配送料の負担が空の時' do
-        @item.shipping_charge_id = 0
+        @item.shipping_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charge must be other than 0")
       end
       it'発送元が空の時' do
-        @item.region_of_origin_id = 0
+        @item.region_of_origin_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Region of origin must be other than 0")
       end
       it'日数が空の時' do
-        @item.number_of_day_id = 0
+        @item.number_of_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Number of day must be other than 0")
       end

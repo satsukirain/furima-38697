@@ -13,9 +13,8 @@ class Item < ApplicationRecord
           validates :product_name
           validates :explanation
           validates :image
-          # validates :price
       
-          with_options  numericality: { other_than: 0 } do
+          with_options  numericality: { other_than: 1 } do
             validates :category_id
             validates :situation_id
             validates :shipping_charge_id
@@ -26,6 +25,5 @@ class Item < ApplicationRecord
           
         end
       
-        validates_inclusion_of :price, in: (300..9999999), format: {with: /\A[0-9]+\z/ }
         validates :price, presence: true, numericality: {only_integer: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 end
