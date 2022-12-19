@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     before_action :authenticate_user!, except: :index
     def index
-        @item = Item.all
+        # @item = Item.all
     end
 
     def new
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     end
 
     def edit
-        @items = Item.all
+        # @items = Item.all
     end
 
     private
