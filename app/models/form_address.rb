@@ -4,15 +4,16 @@ class FormAddress
     
       # ここにバリデーションの処理を書く
       #空の投稿を保存できないようにする
-       validates :post_code, presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は半角数値の3桁(-)4桁で入力してください"}
-       validates :region_of_origin_id, presence: true
-       validates :municipalities, presence: true               
-       validates :address, presence: true
-       validates :phone_number, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/,  message: "は半角数値の10桁から11桁以内に入力してください"}
-       validates :user_id, presence: true
-       validates :item_id, presence: true
-       validates :token, presence: true
-  
+      with_options presence: true do
+       validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は半角数値の3桁(-)4桁で入力してください"}
+       validates :region_of_origin_id
+       validates :municipalities              
+       validates :address
+       validates :phone_number, format: {with: /\A\d{10}$|^\d{11}\z/,  message: "は半角数値の10桁から11桁以内に入力してください"}
+       validates :user_id
+       validates :item_id
+       validates :token
+      end
       #都道府県の選択が「---」の時は保存できないようにする
        validates :region_of_origin_id, numericality: { other_than: 1, message: "は---以外を入力してください"}
   
