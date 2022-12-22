@@ -3,17 +3,17 @@ class OrdersController < ApplicationController
     before_action :set_item, only: [ :index, :create]
   
     def index
-      # if @item.user_id != current_user.id
+       if @item.user_id != current_user.id
          @form_address = FormAddress.new
-      # else
-      #   redirect_to root_path
-      # end
-      # unless @item.order.present?
-      #   @form_address = FormAddress.new
-      # end
-      # if @item.order.present? && @item.user_id != current_user.id
-      #   redirect_to root_path
-      # end
+       else
+         redirect_to root_path
+       end
+       unless @item.order.present?
+         @form_address = FormAddress.new
+       end
+       if @item.order.present? && @item.user_id != current_user.id
+         redirect_to root_path
+       end
     end
   
     def create
