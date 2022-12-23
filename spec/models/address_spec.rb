@@ -49,17 +49,17 @@ RSpec.describe Address, type: :model do
       it 'post_codeが3桁(-)4桁以外では登録できない' do
         @form_address.post_code = '1234-111'
         @form_address.valid?
-        expect(@form_address.errors.full_messages).to include("Post code は半角数値の3桁(-)4桁で入力してください")
+        expect(@form_address.errors.full_messages).to include("郵便番号 は半角数値の3桁(-)4桁で入力してください")
       end
       it 'post_codeは(-)を含まないと登録できない' do
         @form_address.post_code = '1231234'
         @form_address.valid?
-        expect(@form_address.errors.full_messages).to include("Post code は半角数値の3桁(-)4桁で入力してください")
+        expect(@form_address.errors.full_messages).to include("郵便番号 は半角数値の3桁(-)4桁で入力してください")
       end
       it 'post_codeは半角数値でないと登録できない' do
         @form_address.post_code = '12３1234'
         @form_address.valid?
-        expect(@form_address.errors.full_messages).to include("Post code は半角数値の3桁(-)4桁で入力してください")
+        expect(@form_address.errors.full_messages).to include("郵便番号 は半角数値の3桁(-)4桁で入力してください")
       end
       it 'phone_numberは9桁以下では登録できない' do
         @form_address.phone_number = '012345678'

@@ -4,17 +4,27 @@ class Item < ApplicationRecord
         has_one :order
         
         extend ActiveHash::Associations::ActiveRecordExtensions
+         # ActiveHash::Associations::ActiveRecordExtensions
         belongs_to :category
         belongs_to :situation
         belongs_to :shipping_charge
         belongs_to :region_of_origin
         belongs_to :number_of_day
       
+         #空の投稿を保存できないようにする
         with_options presence: true do 
           validates :product_name
           validates :explanation
           validates :image
+          validates :category_id 
+          validates :situation_id 
+          validates :shipping_charge_id
+          validates :region_of_origin_id 
+          validates :number_of_day_id 
+          validates :price
       
+
+          #ジャンルの選択が「---」の時は保存できないようにする
           with_options  numericality: { other_than: 1 } do
             validates :category_id
             validates :situation_id
