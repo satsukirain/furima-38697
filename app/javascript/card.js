@@ -36,7 +36,7 @@
 
 
 const pay = ()=> {
-  const payjp = Payjp('あなたのPAY.JPテスト用公開鍵を入力')
+  const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY)
   const elements = payjp.elements();
 
   const numberElement = elements.create('cardNumber');
